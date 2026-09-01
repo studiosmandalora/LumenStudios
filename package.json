@@ -1,14 +1,14 @@
 {
-  "name": "click-media",
+  "name": "lumen-studios",
   "version": "1.0.0",
-  "description": "Click Media — Photography & Videography Studio Website",
+  "description": "Lumen Studios — Photography & Videography Studio Website",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
     "dev": "node server/server.js"
   },
   "keywords": ["photography", "videography", "studio", "website"],
-  "author": "Click Media",
+  "author": "Lumen Studios",
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
