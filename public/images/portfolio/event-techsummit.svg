@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="750" viewBox="0 0 600 750">
+  <defs>
+    <linearGradient id="bg6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E2DAC8"/>
+      <stop offset="100%" style="stop-color:#D4CAB5"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="750" fill="url(#bg6)"/>
+  <g transform="translate(300,340)" opacity="0.15">
+    <rect x="-60" y="-40" width="120" height="80" rx="8" fill="#15171B"/>
+    <circle cx="0" cy="0" r="30" fill="none" stroke="#15171B" stroke-width="4"/>
+    <circle cx="0" cy="0" r="15" fill="#15171B"/>
+    <rect x="-20" y="-55" width="40" height="15" rx="4" fill="#15171B"/>
+  </g>
+  <rect x="180" y="520" width="240" height="2" fill="#2D4FA0" opacity="0.1"/>
+  <text x="300" y="650" text-anchor="middle" font-family="'Big Shoulders Display', Impact, sans-serif" font-weight="700" font-size="24" fill="#15171B" opacity="0.15" letter-spacing="4">EVENT</text>
+</svg>

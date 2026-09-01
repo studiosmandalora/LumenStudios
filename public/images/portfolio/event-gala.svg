@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="750" viewBox="0 0 600 750">
+  <defs>
+    <linearGradient id="bg9" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2A2520"/>
+      <stop offset="100%" style="stop-color:#15171B"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="750" fill="url(#bg9)"/>
+  <g transform="translate(300,340)" opacity="0.12">
+    <rect x="-60" y="-40" width="120" height="80" rx="8" fill="#FFFFFF"/>
+    <circle cx="0" cy="0" r="30" fill="none" stroke="#FFFFFF" stroke-width="4"/>
+    <circle cx="0" cy="0" r="15" fill="#FFFFFF"/>
+    <rect x="-20" y="-55" width="40" height="15" rx="4" fill="#FFFFFF"/>
+  </g>
+  <circle cx="300" cy="375" r="40" fill="none" stroke="#B9C6E8" stroke-width="2" opacity="0.25"/>
+  <polygon points="290,355 290,395 320,375" fill="#B9C6E8" opacity="0.25"/>
+  <text x="300" y="650" text-anchor="middle" font-family="'Big Shoulders Display', Impact, sans-serif" font-weight="700" font-size="24" fill="#FFFFFF" opacity="0.15" letter-spacing="4">EVENT FILM</text>
+</svg>

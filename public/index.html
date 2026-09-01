@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>Click Media — Photography &amp; Videography Studio</title>
+  <meta name="description" content="Click Media is a professional photography and videography studio. From portraits and weddings to event coverage and commercial work — we capture the moment, you keep it.">
+  <meta name="keywords" content="photography, videography, studio, wedding, portrait, events, commercial, promo">
+  <meta name="author" content="Click Media">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Click Media — Photography &amp; Videography Studio">
+  <meta property="og:description" content="Professional photography and videography. We capture the moment, you keep it.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://clickmedia.com">
+  <meta property="og:image" content="/images/og-image.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Click Media — Photography &amp; Videography Studio">
+  <meta name="twitter:description" content="Professional photography and videography. We capture the moment, you keep it.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;500;600;700;800;900&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <!-- ================================================================
+       NAVIGATION
+       ================================================================ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo" aria-label="Click Media home">
+        <span class="nav__logo-click">CLICK</span><span class="nav__logo-dot">.</span><span class="nav__logo-media">MEDIA</span>
+      </a>
+
+      <nav class="nav__links" id="navLinks" aria-label="Main navigation">
+        <a href="#services" class="nav__link">Services</a>
+        <a href="#portfolio" class="nav__link">Portfolio</a>
+        <a href="#team" class="nav__link">Team</a>
+        <a href="#contact" class="nav__link">Contact</a>
+      </nav>
+
+      <a href="#contact" class="nav__cta">Get in touch</a>
+
+      <button class="nav__hamburger" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->      <div class="nav__mobile" id="navMobile">
+      <a href="#services" class="nav__mobile-link">Services</a>
+      <a href="#portfolio" class="nav__mobile-link">Portfolio</a>
+      <a href="#team" class="nav__mobile-link">Team</a>
+      <a href="#contact" class="nav__mobile-link">Contact</a>
+      <a href="#contact" class="nav__mobile-cta">Get in touch</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ================================================================
+         HERO
+         ================================================================ -->
+    <section class="hero" id="hero">
+      <div class="hero__inner">
+        <div class="hero__content">
+          <p class="hero__eyebrow anim-fade-up">Photography &amp; Videography Studio</p>
+          <h1 class="hero__title anim-fade-up" style="animation-delay:.1s">
+            We capture<br>
+            the moment,<br>
+            you <span class="text-blue">keep it.</span>
+          </h1>
+          <p class="hero__desc anim-fade-up" style="animation-delay:.2s">
+            Choose photography or videography, pick a service, and send us your details.
+            We'll handle the rest — from concept to final delivery.
+          </p>
+          <div class="hero__actions anim-fade-up" style="animation-delay:.3s">
+            <a href="#services" class="btn btn--primary">Choose a service</a>
+            <a href="#portfolio" class="btn btn--outline">See the work</a>
+          </div>
+        </div>
+
+        <div class="hero__graphic anim-fade-up" style="animation-delay:.2s" aria-hidden="true">
+          <div class="aperture" id="aperture">
+            <svg class="aperture__svg" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <clipPath id="centerClip">
+                  <circle cx="130" cy="130" r="40"/>
+                </clipPath>
+              </defs>
+              <!-- Blades -->
+              <g class="aperture__blades" id="apertureBlades">
+                <polygon class="aperture__blade" points="130,130 60,10 170,10"/>
+                <polygon class="aperture__blade" points="130,130 170,10 220,55"/>
+                <polygon class="aperture__blade" points="130,130 220,55 250,130"/>
+                <polygon class="aperture__blade" points="130,130 250,130 220,205"/>
+                <polygon class="aperture__blade" points="130,130 220,205 170,250"/>
+                <polygon class="aperture__blade" points="130,130 170,250 90,250"/>
+                <polygon class="aperture__blade" points="130,130 90,250 10,205"/>
+                <polygon class="aperture__blade" points="130,130 10,205 10,130"/>
+              </g>
+              <!-- Center circle -->
+              <circle class="aperture__center" cx="130" cy="130" r="42"/>
+              <text class="aperture__text" x="130" y="135" text-anchor="middle" dominant-baseline="middle">CLICK</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SERVICES
+         ================================================================ -->
+    <section class="services" id="services">
+      <div class="container">
+        <p class="section-label anim-reveal">01 — Services</p>
+        <h2 class="section-title anim-reveal">Pick a path</h2>
+        <p class="section-desc anim-reveal">
+          Select photography or videography, then choose a specific type of shoot.
+          Your choice will filter the portfolio below.
+        </p>
+
+        <div class="services__grid">
+          <!-- Photography -->
+          <div class="service-card anim-reveal" data-branch="photography">
+            <button class="service-card__header" aria-expanded="false">
+              <div class="service-card__header-left">
+                <h3 class="service-card__title">Photography</h3>
+                <p class="service-card__desc">Stills, printed or shared — portraits to full events.</p>
+              </div>
+              <span class="service-card__icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="service-card__body">
+              <div class="service-card__chips">
+                <button class="chip" data-service="portrait-session">Portrait Session</button>
+                <button class="chip" data-service="wedding-photography">Wedding Photography</button>
+                <button class="chip" data-service="sports-photo">Sports Photo Shoot</button>
+                <button class="chip" data-service="event-coverage">Event Coverage</button>
+                <button class="chip" data-service="product-photography">Product Photography</button>
+              </div>
+              <p class="service-card__detail" id="photoDetail"></p>
+            </div>
+          </div>
+
+          <!-- Videography -->
+          <div class="service-card anim-reveal" data-branch="videography" style="animation-delay:.1s">
+            <button class="service-card__header" aria-expanded="false">
+              <div class="service-card__header-left">
+                <h3 class="service-card__title">Videography</h3>
+                <p class="service-card__desc">Motion, sound and story — from reels to full films.</p>
+              </div>
+              <span class="service-card__icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </span>
+            </button>
+            <div class="service-card__body">
+              <div class="service-card__chips">
+                <button class="chip" data-service="wedding-films">Wedding Films</button>
+                <button class="chip" data-service="event-videography">Event Videography</button>
+                <button class="chip" data-service="sports-highlights">Sports Highlight Reels</button>
+                <button class="chip" data-service="commercial-promo">Commercial &amp; Promo</button>
+                <button class="chip" data-service="music-videos">Music Videos</button>
+              </div>
+              <p class="service-card__detail" id="videoDetail"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         PORTFOLIO
+         ================================================================ -->
+    <section class="portfolio" id="portfolio">
+      <div class="container">
+        <p class="section-label anim-reveal">02 — Portfolio</p>
+        <h2 class="section-title anim-reveal">Recent work</h2>
+
+        <div class="portfolio__filters anim-reveal">
+          <button class="portfolio__filter active" data-filter="all">All work</button>
+          <button class="portfolio__filter" data-filter="photography">Photography</button>
+          <button class="portfolio__filter" data-filter="videography">Videography</button>
+        </div>
+
+        <div class="portfolio__grid" id="portfolioGrid">
+          <!-- Portfolio items are injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         TEAM
+         ================================================================ -->
+    <section class="team" id="team">
+      <div class="container">
+        <p class="section-label anim-reveal">03 — Team</p>
+        <h2 class="section-title anim-reveal">Meet the team</h2>
+        <p class="section-desc anim-reveal">
+          The people behind the lens. A small, dedicated crew obsessed with light, composition, and telling stories that move people.
+        </p>
+
+        <div class="team__grid">
+          <div class="team-card anim-reveal">
+            <div class="team-card__photo">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <rect width="200" height="200" fill="#E2DAC8"/>
+                <circle cx="100" cy="80" r="35" fill="#B9C6E8"/>
+                <ellipse cx="100" cy="170" rx="55" ry="50" fill="#B9C6E8"/>
+              </svg>
+            </div>
+            <h3 class="team-card__name">Jordan Reyes</h3>
+            <p class="team-card__role">Founder &amp; Lead Photographer</p>
+            <p class="team-card__bio">15 years behind the lens. Jordan started Click Media with a single camera and a stubborn belief that every moment deserves to be captured beautifully.</p>
+          </div>
+
+          <div class="team-card anim-reveal" style="animation-delay:.1s">
+            <div class="team-card__photo">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <rect width="200" height="200" fill="#E2DAC8"/>
+                <circle cx="100" cy="80" r="35" fill="#B9C6E8"/>
+                <ellipse cx="100" cy="170" rx="55" ry="50" fill="#B9C6E8"/>
+              </svg>
+            </div>
+            <h3 class="team-card__name">Aisha Patel</h3>
+            <p class="team-card__role">Head of Videography</p>
+            <p class="team-card__bio">Award-winning filmmaker with a background in documentary. Aisha brings cinematic depth to every project, from wedding films to brand promos.</p>
+          </div>
+
+          <div class="team-card anim-reveal" style="animation-delay:.2s">
+            <div class="team-card__photo">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <rect width="200" height="200" fill="#E2DAC8"/>
+                <circle cx="100" cy="80" r="35" fill="#B9C6E8"/>
+                <ellipse cx="100" cy="170" rx="55" ry="50" fill="#B9C6E8"/>
+              </svg>
+            </div>
+            <h3 class="team-card__name">Marcus Chen</h3>
+            <p class="team-card__role">Editor &amp; Colorist</p>
+            <p class="team-card__bio">The post-production wizard. Marcus turns raw footage into polished stories with meticulous color grading and rhythmic pacing.</p>
+          </div>
+
+          <div class="team-card anim-reveal" style="animation-delay:.3s">
+            <div class="team-card__photo">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <rect width="200" height="200" fill="#E2DAC8"/>
+                <circle cx="100" cy="80" r="35" fill="#B9C6E8"/>
+                <ellipse cx="100" cy="170" rx="55" ry="50" fill="#B9C6E8"/>
+              </svg>
+            </div>
+            <h3 class="team-card__name">Lena Torres</h3>
+            <p class="team-card__role">Client Relations &amp; Producer</p>
+            <p class="team-card__bio">Lena keeps every production running on time and on budget. She's the first voice you hear and the reason every shoot feels effortless.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         CONTACT
+         ================================================================ -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact__inner">
+          <div class="contact__info anim-reveal">
+            <h2 class="contact__title">Ready to book?</h2>
+            <p class="contact__desc">
+              Send a few details about your shoot and we'll get back to you with dates and pricing.
+            </p>
+            <div class="contact__details">
+              <p><strong>Email</strong><br><a href="mailto:hello@clickmedia.com">hello@clickmedia.com</a></p>
+              <p><strong>Location</strong><br>Los Angeles, CA</p>
+            </div>
+          </div>
+
+          <form class="contact__form anim-reveal" id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="contactName">Name</label>
+              <input type="text" id="contactName" name="name" required autocomplete="name" placeholder="Your name">
+            </div>
+            <div class="form-group">
+              <label for="contactEmail">Email</label>
+              <input type="email" id="contactEmail" name="email" required autocomplete="email" placeholder="you@email.com">
+            </div>
+            <div class="form-group">
+              <label for="contactService">Service — What are you booking?</label>
+              <select id="contactService" name="service" required>
+                <option value="" disabled selected>Select a service</option>
+                <optgroup label="Photography">
+                  <option value="Portrait Session">Portrait Session</option>
+                  <option value="Wedding Photography">Wedding Photography</option>
+                  <option value="Sports Photo Shoot">Sports Photo Shoot</option>
+                  <option value="Event Coverage">Event Coverage</option>
+                  <option value="Product Photography">Product Photography</option>
+                </optgroup>
+                <optgroup label="Videography">
+                  <option value="Wedding Films">Wedding Films</option>
+                  <option value="Event Videography">Event Videography</option>
+                  <option value="Sports Highlight Reels">Sports Highlight Reels</option>
+                  <option value="Commercial & Promo">Commercial &amp; Promo</option>
+                  <option value="Music Videos">Music Videos</option>
+                </optgroup>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="contactMessage">Message — Date &amp; location details</label>
+              <textarea id="contactMessage" name="message" required rows="4" placeholder="Tell us about your shoot..."></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--full" id="contactSubmit">
+              <span class="btn__text">Send inquiry</span>
+              <span class="btn__spinner" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="40" stroke-dashoffset="10"/></svg>
+              </span>
+            </button>
+            <div class="form-status" id="formStatus" role="alert" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================================================================
+       FOOTER
+       ================================================================ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__left">
+        <a href="#" class="nav__logo" aria-label="Click Media home">
+          <span class="nav__logo-click">CLICK</span><span class="nav__logo-dot">.</span><span class="nav__logo-media">MEDIA</span>
+        </a>
+        <p class="footer__copy">&copy; 2026 Click Media. All rights reserved.</p>
+      </div>
+      <div class="footer__right">
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cursor pill (desktop only) -->
+  <div class="cursor-pill" id="cursorPill" aria-hidden="true">View</div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
