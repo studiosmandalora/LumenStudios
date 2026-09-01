@@ -769,8 +769,10 @@ ul, ol {
 
 .team__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-xl);
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .team-card {
@@ -859,19 +861,12 @@ ul, ol {
   color: #333;
 }
 
-/* Team responsive — tablet */
-@media (max-width: 1024px) {
-  .team__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-2xl);
-  }
-}
-
 /* Team responsive — mobile */
 @media (max-width: 768px) {
   .team__grid {
     grid-template-columns: 1fr;
     gap: var(--space-2xl);
+    max-width: 360px;
   }
 }
 
