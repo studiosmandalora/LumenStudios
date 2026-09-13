@@ -1,5 +1,5 @@
 /* ================================================================
-   CLICK MEDIA — Application Logic
+   LUMEN STUDIOS — Application Logic
    ================================================================ */
 
 (function () {
@@ -10,8 +10,8 @@
   // ================================================================
   const CONFIG = {
     business: {
-      name: "Click Media",
-      email: "hello@clickmedia.com",
+      name: "Lumen Studios",
+      email: "hello@lumenstudios.com",
       phone: "",
       location: "Los Angeles, CA",
     },
@@ -305,6 +305,9 @@
             activeBranch = branch;
             detailEl.textContent = options[serviceKey]?.detail || "";
 
+            // Pre-fill contact form service dropdown
+            prefillContactService(serviceKey);
+
             // Filter portfolio
             filterPortfolio("service", serviceKey);
 
@@ -416,6 +419,43 @@
   }
 
   // ================================================================
+  // SERVICE PRE-FILL
+  // ================================================================
+  function prefillContactService(serviceKey) {
+    const serviceSelect = document.getElementById("contactService");
+    if (!serviceSelect) return;
+
+    // Map internal service keys to the human-readable option values in the select
+    const keyToLabel = {
+      "portrait-session": "Portrait Session",
+      "wedding-photography": "Wedding Photography",
+      "sports-photo": "Sports Photo Shoot",
+      "event-coverage": "Event Coverage",
+      "product-photography": "Product Photography",
+      "wedding-films": "Wedding Films",
+      "event-videography": "Event Videography",
+      "sports-highlights": "Sports Highlight Reels",
+      "commercial-promo": "Commercial & Promo",
+      "music-videos": "Music Videos",
+    };
+
+    const label = keyToLabel[serviceKey];
+    if (label) {
+      serviceSelect.value = label;
+
+      // Scroll to contact section
+      setTimeout(() => {
+        const contact = document.getElementById("contact");
+        if (contact) {
+          const offset = 72;
+          const top = contact.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top, behavior: "smooth" });
+        }
+      }, 600);
+    }
+  }
+
+  // ================================================================
   // CONTACT FORM
   // ================================================================
   function initContactForm() {
@@ -423,9 +463,6 @@
     const submitBtn = document.getElementById("contactSubmit");
     const status = document.getElementById("formStatus");
     if (!form) return;
-
-    // Pre-fill service if selected from services section
-    const serviceSelect = document.getElementById("contactService");
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();

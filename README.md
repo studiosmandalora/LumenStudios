@@ -1,4 +1,4 @@
-# Click Media — Photography & Videography Studio
+# Lumen Studios — Photography & Videography Studio
 
 A production-ready full-stack website for a photography/videography studio. Built with a clean frontend (HTML/CSS/JS) and a lightweight Node.js/Express backend. **No database required.**
 
@@ -33,11 +33,13 @@ EMAIL_HOST=smtp.gmail.com
 EMAIL_PORT=587
 EMAIL_USER=your-email@gmail.com
 EMAIL_PASSWORD=your-app-password
-BUSINESS_EMAIL=business@clickmedia.com
-EMAIL_FROM=noreply@clickmedia.com
+BUSINESS_EMAIL=business@lumenstudios.com
+EMAIL_FROM=noreply@lumenstudios.com
 ```
 
 > For Gmail, generate an App Password at https://myaccount.google.com/apppasswords
+
+> **No email configured?** The form still works — inquiries are logged to `inquiries/` as JSON files and printed to the server console. Configure SMTP later to enable email delivery.
 
 ### 3. Run locally
 

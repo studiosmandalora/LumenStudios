@@ -6,6 +6,7 @@ const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
 const nodemailer = require("nodemailer");
 const path = require("path");
+const fs = require("fs");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -60,17 +61,38 @@ const contactLimiter = rateLimit({
 });
 
 // ---------------------------------------------------------------------------
-// Nodemailer transport
+// Nodemailer transport (optional — falls back to file logging)
 // ---------------------------------------------------------------------------
-const transporter = nodemailer.createTransport({
-  host: process.env.EMAIL_HOST,
-  port: parseInt(process.env.EMAIL_PORT || "587", 10),
-  secure: parseInt(process.env.EMAIL_PORT || "587", 10) === 465,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASSWORD,
-  },
-});
+const emailConfigured =
+  process.env.EMAIL_HOST &&
+  process.env.EMAIL_USER &&
+  process.env.EMAIL_PASSWORD &&
+  process.env.BUSINESS_EMAIL;
+
+const transporter = emailConfigured
+  ? nodemailer.createTransport({
+      host: process.env.EMAIL_HOST,
+      port: parseInt(process.env.EMAIL_PORT || "587", 10),
+      secure: parseInt(process.env.EMAIL_PORT || "587", 10) === 465,
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASSWORD,
+      },
+    })
+  : null;
+
+// Inquiries log file
+const inquiriesDir = path.join(__dirname, "..", "inquiries");
+if (!fs.existsSync(inquiriesDir)) {
+  fs.mkdirSync(inquiriesDir, { recursive: true });
+}
+
+function logInquiry(data) {
+  const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+  const filePath = path.join(inquiriesDir, `inquiry-${timestamp}.json`);
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+  console.log(`[Inquiry logged] ${filePath}`);
+}
 
 // ---------------------------------------------------------------------------
 // Validation helpers
@@ -81,18 +103,19 @@ const MAX_EMAIL = 254;
 const MAX_SERVICE = 200;
 const MAX_MESSAGE = 2000;
 
-function sanitize(str) {
+function sanitize(str, maxLen) {
   if (typeof str !== "string") return "";
-  return str.trim().replace(/<[^>]*>/g, "").slice(0, 500);
+  const limit = maxLen || 500;
+  return str.trim().replace(/<[^>]*>/g, "").slice(0, limit);
 }
 
 function validate(body) {
   const errors = [];
 
-  const name = sanitize(body.name);
-  const email = sanitize(body.email);
-  const service = sanitize(body.service);
-  const message = sanitize(body.message);
+  const name = sanitize(body.name, MAX_NAME);
+  const email = sanitize(body.email, MAX_EMAIL);
+  const service = sanitize(body.service, MAX_SERVICE);
+  const message = sanitize(body.message, MAX_MESSAGE);
 
   if (!name || name.length < 1) {
     errors.push("Please enter your name.");
@@ -118,9 +141,9 @@ function validate(body) {
     errors.push(`Message must be ${MAX_MESSAGE} characters or fewer.`);
   }
 
-  // Basic spam checks
+  // Basic spam checks (skip URL checks — users legitimately share venue links)
   const combined = `${name} ${email} ${message}`.toLowerCase();
-  const spamTriggers = ["http://", "https://", "<script", "viagra", "casino", "bitcoin", "buy now"];
+  const spamTriggers = ["<script", "viagra", "casino", "buy now"];
   if (spamTriggers.some((t) => combined.includes(t))) {
     errors.push("Your message was flagged as potential spam.");
   }
@@ -150,39 +173,61 @@ app.post("/api/contact", contactLimiter, async (req, res) => {
       timeZoneName: "short",
     });
 
-    const mailOptions = {
-      from: process.env.EMAIL_FROM || process.env.EMAIL_USER,
-      to: process.env.BUSINESS_EMAIL,
-      replyTo: email,
-      subject: `New Website Inquiry — ${service}`,
-      text: [
-        "New Website Inquiry",
-        "",
-        `Name: ${name}`,
-        `Email: ${email}`,
-        `Service: ${service}`,
-        "",
-        "Message:",
-        message,
-        "",
-        `Submitted: ${dateStr}`,
-      ].join("\n"),
-      html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; color: #15171B;">
-          <h2 style="margin: 0 0 8px; font-size: 20px;">New Website Inquiry</h2>
-          <hr style="border: none; border-top: 1px solid #E2DAC8; margin: 12px 0;">
-          <p style="margin: 6px 0;"><strong>Name:</strong> ${name}</p>
-          <p style="margin: 6px 0;"><strong>Email:</strong> ${email}</p>
-          <p style="margin: 6px 0;"><strong>Service:</strong> ${service}</p>
-          <p style="margin: 6px 0;"><strong>Message:</strong></p>
-          <p style="margin: 6px 0; white-space: pre-wrap;">${message}</p>
-          <hr style="border: none; border-top: 1px solid #E2DAC8; margin: 12px 0;">
-          <p style="margin: 6px 0; font-size: 12px; color: #666;">Submitted: ${dateStr}</p>
-        </div>
-      `,
+    const inquiryData = {
+      name,
+      email,
+      service,
+      message,
+      submitted: dateStr,
+      receivedAt: now.toISOString(),
     };
 
-    await transporter.sendMail(mailOptions);
+    // Always log inquiry to file
+    logInquiry(inquiryData);
+
+    // Send email if configured, otherwise just log
+    if (transporter) {
+      const mailOptions = {
+        from: process.env.EMAIL_FROM || process.env.EMAIL_USER,
+        to: process.env.BUSINESS_EMAIL,
+        replyTo: email,
+        subject: `New Website Inquiry — ${service}`,
+        text: [
+          "New Website Inquiry",
+          "",
+          `Name: ${name}`,
+          `Email: ${email}`,
+          `Service: ${service}`,
+          "",
+          "Message:",
+          message,
+          "",
+          `Submitted: ${dateStr}`,
+        ].join("\n"),
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; color: #15171B;">
+            <h2 style="margin: 0 0 8px; font-size: 20px;">New Website Inquiry</h2>
+            <hr style="border: none; border-top: 1px solid #E2DAC8; margin: 12px 0;">
+            <p style="margin: 6px 0;"><strong>Name:</strong> ${name}</p>
+            <p style="margin: 6px 0;"><strong>Email:</strong> ${email}</p>
+            <p style="margin: 6px 0;"><strong>Service:</strong> ${service}</p>
+            <p style="margin: 6px 0;"><strong>Message:</strong></p>
+            <p style="margin: 6px 0; white-space: pre-wrap;">${message}</p>
+            <hr style="border: none; border-top: 1px solid #E2DAC8; margin: 12px 0;">
+            <p style="margin: 6px 0; font-size: 12px; color: #666;">Submitted: ${dateStr}</p>
+          </div>
+        `,
+      };
+
+      try {
+        await transporter.sendMail(mailOptions);
+        console.log(`[Email sent] Inquiry from ${email}`);
+      } catch (mailErr) {
+        console.error(`[Email failed] ${mailErr.message} — inquiry saved to file`);
+      }
+    } else {
+      console.log(`[No email configured] Inquiry from ${email} logged to file`);
+    }
 
     return res.status(200).json({
       success: true,
@@ -208,5 +253,5 @@ app.get("*", (_req, res) => {
 // Start
 // ---------------------------------------------------------------------------
 app.listen(PORT, () => {
-  console.log(`Click Media server running on http://localhost:${PORT}`);
+  console.log(`Lumen Studios server running on http://localhost:${PORT}`);
 });
