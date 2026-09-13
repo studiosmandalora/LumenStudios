@@ -262,7 +262,16 @@
             </div>
           </div>
 
-          <form class="contact__form anim-reveal" id="contactForm" novalidate>
+          <form class="contact__form anim-reveal" id="contactForm" method="POST" action="https://api.web3forms.com/submit" novalidate>
+            <!-- Web3Forms access key — replace YOUR_ACCESS_KEY with your key from web3forms.com -->
+            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY">
+            <input type="hidden" name="subject" value="New Website Inquiry">
+            <input type="hidden" name="from_name" value="Lumen Studios Website">
+            <input type="hidden" name="replyto" value="">
+            <input type="hidden" name="redirect" value="">
+            <!-- Honeypot spam protection -->
+            <input type="checkbox" name="botcheck" style="display: none;">
+
             <div class="form-group">
               <label for="contactName">Name</label>
               <input type="text" id="contactName" name="name" required autocomplete="name" placeholder="Your name">

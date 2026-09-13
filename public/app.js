@@ -497,16 +497,21 @@
       submitBtn.disabled = true;
 
       try {
-        const res = await fetch("/api/contact", {
+        // Send to Web3Forms — they forward the inquiry to studios.lumen@proton.me
+        const formData = new FormData(form);
+        formData.set("subject", `New Inquiry — ${service}`);
+        formData.set("from_name", name);
+        formData.set("replyto", email);
+
+        const res = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name, email, service, message }),
+          body: formData,
         });
 
         const data = await res.json();
 
         if (data.success) {
-          status.textContent = data.message;
+          status.textContent = "Thanks — we'll be in touch shortly.";
           status.className = "form-status form-status--success";
           form.reset();
         } else {
