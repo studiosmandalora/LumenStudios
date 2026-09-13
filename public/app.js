@@ -11,7 +11,7 @@
   const CONFIG = {
     business: {
       name: "Lumen Studios",
-      email: "hello@lumenstudios.com",
+      email: "studios.lumen@proton.me",
       phone: "",
       location: "Los Angeles, CA",
     },
