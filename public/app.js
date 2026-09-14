@@ -13,7 +13,7 @@
       name: "Lumen Studios",
       email: "studios.lumen@proton.me",
       phone: "",
-      location: "Los Angeles, CA",
+      location: "Redmond, WA",
     },
 
     services: {
