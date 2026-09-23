@@ -1056,14 +1056,16 @@ ul, ol {
   box-shadow: 0 0 30px rgba(var(--glow-rgb), 0.4);
 }
 
-.team-card__photo svg {
+.team-card__photo img {
   width: 100%;
   height: 100%;
   display: block;
+  object-fit: cover;
+  object-position: center center;
   transition: transform var(--duration-med) var(--ease-out);
 }
 
-.team-card:hover .team-card__photo svg {
+.team-card:hover .team-card__photo img {
   transform: scale(1.05);
 }
 
