@@ -300,6 +300,12 @@ ul, ol {
   color: var(--ink);
 }
 
+.nav__logo-img {
+  height: 70px;
+  width: auto;
+  margin-right: var(--space-sm);
+}
+
 /* Nav links */
 .nav__links {
   display: flex;
