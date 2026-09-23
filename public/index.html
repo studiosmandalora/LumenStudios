@@ -32,7 +32,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;500;600;700;800;900&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/styles.css?v=packages-20260923">
 </head>
 <body>
 
@@ -46,7 +46,7 @@
       </a>
 
       <nav class="nav__links" id="navLinks" aria-label="Main navigation">
-        <a href="#services" class="nav__link">Services</a>
+        <a href="#services" class="nav__link">Packages</a>
         <a href="#portfolio" class="nav__link">Portfolio</a>
         <a href="#team" class="nav__link">Team</a>
         <a href="#contact" class="nav__link">Contact</a>
@@ -62,7 +62,7 @@
     </div>
 
     <!-- Mobile menu -->      <div class="nav__mobile" id="navMobile">
-      <a href="#services" class="nav__mobile-link">Services</a>
+      <a href="#services" class="nav__mobile-link">Packages</a>
       <a href="#portfolio" class="nav__mobile-link">Portfolio</a>
       <a href="#team" class="nav__mobile-link">Team</a>
       <a href="#contact" class="nav__mobile-link">Contact</a>
@@ -85,11 +85,10 @@
             you <span class="text-blue">keep it.</span>
           </h1>
           <p class="hero__desc anim-fade-up" style="animation-delay:.2s">
-            Choose photography or videography, pick a service, and send us your details.
-            We'll handle the rest — from concept to final delivery.
+            Pick a package, send us your shoot details, and we will handle the rest from capture to final delivery.
           </p>
           <div class="hero__actions anim-fade-up" style="animation-delay:.3s">
-            <a href="#services" class="btn btn--primary">Choose a Service</a>
+            <a href="#services" class="btn btn--primary">View Packages</a>
             <a href="#portfolio" class="btn btn--outline">Portfolio</a>
           </div>
         </div>
@@ -127,12 +126,193 @@
          ================================================================ -->
     <section class="services" id="services">
       <div class="container">
-        <p class="section-label anim-reveal">01 — Services</p>
-        <h2 class="section-title anim-reveal">Pick a path</h2>
+        <p class="section-label anim-reveal">01 - Packages</p>
+        <h2 class="section-title anim-reveal">Photography packages</h2>
         <p class="section-desc anim-reveal">
-          Select photography or videography, then choose a specific type of shoot.
-          Your choice will filter the portfolio below.
+          Choose the shoot that fits the moment. Every package includes edited photos and clear delivery details before booking.
         </p>
+
+        <div class="packages">
+          <div class="package-group anim-reveal">
+            <div class="package-group__heading">
+              <span class="package-group__icon" aria-hidden="true">Run</span>
+              <div>
+                <h3>Sports</h3>
+                <p>Individual packages</p>
+              </div>
+            </div>
+            <div class="package-grid package-grid--three">
+              <article class="package-card">
+                <div>
+                  <h4>Basic Package</h4>
+                  <ul>
+                    <li>30-45 minutes</li>
+                    <li>12 photos</li>
+                    <li>Edited</li>
+                  </ul>
+                </div>
+                <div class="package-card__footer">
+                  <strong>$30</strong>
+                  <button class="package-card__book" data-package="Sports Basic Package - $30">Book</button>
+                </div>
+              </article>
+              <article class="package-card package-card--featured">
+                <div>
+                  <h4>Pro Package</h4>
+                  <ul>
+                    <li>55-65 minutes</li>
+                    <li>30-40 photos</li>
+                    <li>Edited</li>
+                  </ul>
+                </div>
+                <div class="package-card__footer">
+                  <strong>$45</strong>
+                  <button class="package-card__book" data-package="Sports Pro Package - $45">Book</button>
+                </div>
+              </article>
+              <article class="package-card">
+                <div>
+                  <h4>Premium Package</h4>
+                  <ul>
+                    <li>75-120 minutes</li>
+                    <li>50-70 photos</li>
+                    <li>Edited</li>
+                  </ul>
+                </div>
+                <div class="package-card__footer">
+                  <strong>$75</strong>
+                  <button class="package-card__book" data-package="Sports Premium Package - $75">Book</button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="package-group anim-reveal">
+            <div class="package-group__heading">
+              <span class="package-group__icon" aria-hidden="true">Cam</span>
+              <div>
+                <h3>Photoshoots</h3>
+                <p>Portrait packages</p>
+              </div>
+            </div>
+            <div class="package-grid package-grid--four">
+              <article class="package-card">
+                <div>
+                  <h4>Solo Package</h4>
+                  <ul>
+                    <li>30 minutes</li>
+                    <li>10-15 photos</li>
+                    <li>Edited</li>
+                  </ul>
+                </div>
+                <div class="package-card__footer">
+                  <strong>$30</strong>
+                  <button class="package-card__book" data-package="Solo Photoshoot Package - $30">Book</button>
+                </div>
+              </article>
+              <article class="package-card">
+                <div>
+                  <h4>Couples Package</h4>
+                  <ul>
+                    <li>30-45 minutes</li>
+                    <li>20-35 photos</li>
+                    <li>Edited</li>
+                  </ul>
+                </div>
+                <div class="package-card__footer">
+                  <strong>$40</strong>
+                  <button class="package-card__book" data-package="Couples Photoshoot Package - $40">Book</button>
+                </div>
+              </article>
+              <article class="package-card">
+                <div>
+                  <h4>Family Package</h4>
+                  <ul>
+                    <li>50-60 minutes</li>
+                    <li>25-45 photos</li>
+                    <li>Edited</li>
+                  </ul>
+                </div>
+                <div class="package-card__footer">
+                  <strong>$60</strong>
+                  <button class="package-card__book" data-package="Family Photoshoot Package - $60">Book</button>
+                </div>
+              </article>
+              <article class="package-card">
+                <div>
+                  <h4>Birthday Parties</h4>
+                  <ul>
+                    <li>Individual and candid photos</li>
+                    <li>50+ photos</li>
+                    <li>Edited</li>
+                  </ul>
+                </div>
+                <div class="package-card__footer">
+                  <strong>$75</strong>
+                  <button class="package-card__book" data-package="Birthday Parties Package - $75">Book</button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="package-group anim-reveal">
+            <div class="package-group__heading">
+              <span class="package-group__icon" aria-hidden="true">Biz</span>
+              <div>
+                <h3>Commercial &amp; Events</h3>
+                <p>Business, venue, and event coverage</p>
+              </div>
+            </div>
+            <div class="package-list">
+              <article class="package-row">
+                <div>
+                  <h4>Commercial Showcase</h4>
+                  <ul>
+                    <li>3+ hours</li>
+                    <li>40-70 photos</li>
+                    <li>30-45 second promotional video</li>
+                    <li>Editing</li>
+                    <li>For restaurants, real estate, companies, and more</li>
+                  </ul>
+                </div>
+                <div class="package-row__price">
+                  <strong>$200</strong>
+                  <button class="package-card__book" data-package="Commercial Showcase - $200">Book</button>
+                </div>
+              </article>
+              <article class="package-row">
+                <div>
+                  <h4>Event Photography</h4>
+                  <ul>
+                    <li>3+ hours</li>
+                    <li>50-75 photos</li>
+                    <li>Editing</li>
+                    <li>Homecoming, concerts, anniversaries, sports media days, and more</li>
+                  </ul>
+                </div>
+                <div class="package-row__price">
+                  <strong>$350</strong>
+                  <button class="package-card__book" data-package="Event Photography - $350">Book</button>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="package-group package-group--addons anim-reveal">
+            <div class="package-group__heading">
+              <span class="package-group__icon" aria-hidden="true">Add</span>
+              <div>
+                <h3>Add Ons</h3>
+                <p>Optional finishing touches</p>
+              </div>
+            </div>
+            <div class="addons">
+              <span>Framing + $7</span>
+              <span>Professional canvas printing + $50</span>
+              <span>Printing + $50</span>
+            </div>
+          </div>
+        </div>
 
         <div class="services__grid">
           <!-- Photography -->
@@ -278,19 +458,23 @@
               <input type="email" id="contactEmail" name="email" required autocomplete="email" placeholder="you@email.com">
             </div>
             <div class="form-group">
-              <label for="contactService">Service — What are you booking?</label>
+              <label for="contactService">Package - What are you booking?</label>
               <select id="contactService" name="service" required>
-                <option value="" disabled selected>Select a service</option>
-                <optgroup label="Photography">
-                  <option value="Portrait Session">Regular Photoshoot</option>
-                  <option value="Sports Photo Shoot">Sports Photo Shoot</option>
-                  <option value="Event Coverage">Event Coverage</option>
-                  <option value="Product Photography">Product Photography</option>
+                <option value="" disabled selected>Select a package</option>
+                <optgroup label="Sports">
+                  <option value="Sports Basic Package - $30">Basic Package - $30</option>
+                  <option value="Sports Pro Package - $45">Pro Package - $45</option>
+                  <option value="Sports Premium Package - $75">Premium Package - $75</option>
                 </optgroup>
-                <optgroup label="Videography">
-                  <option value="Event Videography">Event Videography</option>
-                  <option value="Sports Highlight Reels">Sports Highlight Reels</option>
-                  <option value="Commercial & Promo">Commercial &amp; Promo</option>
+                <optgroup label="Photoshoots">
+                  <option value="Solo Photoshoot Package - $30">Solo Package - $30</option>
+                  <option value="Couples Photoshoot Package - $40">Couples Package - $40</option>
+                  <option value="Family Photoshoot Package - $60">Family Package - $60</option>
+                  <option value="Birthday Parties Package - $75">Birthday Parties - $75</option>
+                </optgroup>
+                <optgroup label="Commercial & Events">
+                  <option value="Commercial Showcase - $200">Commercial Showcase - $200</option>
+                  <option value="Event Photography - $350">Event Photography - $350</option>
                 </optgroup>
               </select>
             </div>
@@ -324,7 +508,7 @@
         <p class="footer__copy">&copy; 2026 Lumen Studios. All rights reserved.</p>
       </div>
       <div class="footer__right">
-        <a href="#services">Services</a>
+        <a href="#services">Packages</a>
         <a href="#portfolio">Portfolio</a>
         <a href="#team">Team</a>
         <a href="#contact">Contact</a>
@@ -335,6 +519,6 @@
   <!-- Cursor pill (desktop only) -->
   <div class="cursor-pill" id="cursorPill" aria-hidden="true">View</div>
 
-  <script src="/app.js"></script>
+  <script src="/app.js?v=packages-20260923"></script>
 </body>
 </html>

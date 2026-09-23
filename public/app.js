@@ -157,6 +157,7 @@
     initNavigation();
     initAperture();
     initServices();
+    initPackageButtons();
     initPortfolio();
     initContactForm();
     initScrollReveal();
@@ -322,6 +323,24 @@
             }, 400);
           }
         });
+      });
+    });
+  }
+
+  function initPackageButtons() {
+    const buttons = document.querySelectorAll(".package-card__book");
+    const serviceSelect = document.getElementById("contactService");
+    const contact = document.getElementById("contact");
+    if (!buttons.length || !serviceSelect || !contact) return;
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const packageName = button.dataset.package;
+        if (packageName) serviceSelect.value = packageName;
+
+        const offset = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--nav-height")) || 72;
+        const top = contact.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top, behavior: "smooth" });
       });
     });
   }
